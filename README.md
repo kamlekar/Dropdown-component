@@ -1,4 +1,4 @@
-HTML-Dropdown-component v.0.5(beta)
+HTML-Dropdown-component v0.6(beta)
 ==================================
 
 This HTML dropdown component will be useful if you want to style it as you want.
