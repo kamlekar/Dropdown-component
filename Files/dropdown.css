@@ -1,5 +1,4 @@
-/* Demo on JSFIDDLE: http://jsfiddle.net/venkateshwar/LD8Dx/131/ */
-.chk-lbl, .options {
+.chk-lbl, .options, .selected-text {
     box-shadow: inset 0 0 5px #345678;
     background-color: #EDEDED;
 }
@@ -11,8 +10,7 @@
     overflow: hidden;
     top: 0px;
     bottom: 0px;
-    left: 5px;
-    right: 25px;
+    z-index: 1;
 }
 .options {
     position: absolute;
