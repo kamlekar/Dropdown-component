@@ -5,14 +5,14 @@
 .chk-lbl, .option {
     padding: 2px 5px;
 }
-.selected-text {
+.chk-lbl .selected-text {
     position: absolute;
     overflow: hidden;
     top: 0px;
     bottom: 0px;
     z-index: 1;
 }
-.options {
+.chk-lbl .options {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -28,19 +28,19 @@
     cursor: pointer;
     position: relative;
 }
-.option {
+.chk-lbl .option {
     overflow: hidden;
 }
 .chk-lbl > input {
     visibility: hidden;
 }
-:checked ~ .options {
+.chk-lbl :checked ~ .options {
     display: block;
     top: auto;
     bottom: auto;
     overflow: auto;
 }
-:checked ~ .options > .option:hover {
+.chk-lbl :checked ~ .options > .option:hover {
     background-color: #343434;
     color: #ACACAC;
 }
@@ -57,7 +57,7 @@
     border-bottom-color:transparent;
     z-index: 2;
 }
-:checked + .chk-pseudo {
+.chk-lbl :checked + .chk-pseudo {
     position: absolute;
     top: 50%;
     margin-top: -6px;
