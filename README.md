@@ -12,7 +12,7 @@ Please help to make it better by contributing.
 Happy coding :)
 
 
-###Found Bugs:
+###Known Issues:
 
 - In initial state, when clicked on arrow state icon, the dropdown is empty instead of showing the first option.
 - Pressing up or down keyboard function doesn't do anything.
