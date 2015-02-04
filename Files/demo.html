@@ -5,18 +5,27 @@
         <link rel="stylesheet" href="dropdown.css" type="text/css" />
     </head>
     <body>
-        <label class="chk-lbl" onload="this.childNodes[0].textContent = this.childNodex[2].innerHTML;">
-            <div class="selected-text"></div>
-            <input class="checkbox" type="checkbox" />
-            <div class="chk-pseudo"></div>
+        <div class="select" data-option="Select">
             <div class="options">
-                <div class="option" onclick="this.parentElement.parentElement.childNodes[0].textContent = this.innerHTML">Select</div>
-                <div onclick="this.parentElement.parentElement.childNodes[0].textContent = this.innerHTML" class="option">One</div>
-                <div onclick="this.parentElement.parentElement.childNodes[0].textContent = this.innerHTML" class="option">Two</div>
+                <div class="options-wrapper">
+                    <div class="option">Select</div>
+                    <div class="option">One</div>
+                    <div class="option">Two</div>
+                    <div class="option">Three</div>
+                    <div class="option">Four</div>
+                    <div class="option">Five</div>
+                    <div class="option">Six</div>
+                    <div class="option">Seven</div>
+                    <div class="option">Eight</div>
+                </div>
             </div>
-        </label>
+        </div>
         
         <!-- script files -->
         <script src="dropdown.js" type="text/javascript"></script>
+        <script>
+            var options = document.getElementsByClassName('select');
+            select.init(options);
+        </script>
     </body>
 </html>

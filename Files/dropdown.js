@@ -1,32 +1,41 @@
-var select = {
-    initialize: function () {
-        this.attachEvents(this.optionEls, 'onclick', this.optionClick, this);
-    },
-    optionEls: document.getElementsByClassName('option'),
-    optionClick: function (e) {
-        var curEl = e.currentTarget;
-        var label = this.getLabelEl(curEl);
-        label.textContent = curEl.innerHTML;
-        if (!this.isStyle) {
-            label.style.left = "0px";
-            label.style.right = "0px";
-            label.style.padding = "2px 5px";
-            this.isStyle = true;
-        }
-    },
-    attachEvents: function (elements, action, method, bind) {
-        for (var i = 0; i < elements.length; i++) {
-            var option = this.optionEls[i];
-            if (bind) {
-                option[action] = method.bind(bind);
-            } else {
-                option[action] = method;
+var select = (function(){
+    var attr = 'data-option',
+        show = 'show',
+        initialize = function (select) {
+            attachEvents(select, 'click', optionsClick);
+            for(var i =0; i<select.length; i++){
+                var options = select[i].getElementsByClassName('option');
+                attachEvents(options, 'click', optionClick);
             }
-        }
-    },
-    getLabelEl: function (curEl) {
-        return curEl.parentElement.parentElement.childNodes[1];
+        },
+        optionsClick = function(e){
+            var el = e.currentTarget;
+            if(e.target !== el){
+                return;
+            }
+            toggleClass(el, show);
+        },
+        optionClick = function (e) {
+            var el = e.currentTarget;
+            var select = el.parentElement.parentElement;
+            select.setAttribute(attr, el.innerHTML);
+            select.classList.remove(show);
+        },
+        toggleClass = function(el, cls){
+            if(el.classList.contains(cls)){
+                el.classList.remove(cls);
+            }
+            else{
+                el.classList.add(cls);
+            }
+        },
+        attachEvents = function (elements, action, method) {
+            for (var i = 0; i < elements.length; i++) {
+                elements[i]["on" + action] = method;
+            }
+        };
+    return {
+        init: initialize
     }
-}
+})();
 
-select.initialize();

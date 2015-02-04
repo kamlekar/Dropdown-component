@@ -1,72 +1,75 @@
-.chk-lbl, .options, .selected-text {
-    box-shadow: inset 0 0 5px #345678;
-    background-color: #EDEDED;
-}
-.chk-lbl, .option {
-    padding: 2px 5px;
-}
-.chk-lbl .selected-text {
-    position: absolute;
-    overflow: hidden;
-    top: 0px;
-    bottom: 0px;
-    z-index: 1;
-}
-.chk-lbl .options {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
+.select{
+    width: 130px;
+    height: 24px;
+    overflow:hidden;
     max-height: 5em;
     overflow: hidden;
-}
-.chk-lbl {
-    width: 100px;
-    height: 20px;
-    display: block;
-    cursor: pointer;
     position: relative;
+    cursor: pointer;
 }
-.chk-lbl .option {
+.options{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #EDEDED;
+    box-shadow: inset 0 0 5px #345678;
+    height: 100px;
     overflow: hidden;
 }
-.chk-lbl > input {
-    visibility: hidden;
-}
-.chk-lbl :checked ~ .options {
-    display: block;
-    top: auto;
-    bottom: auto;
+.options-wrapper{
     overflow: auto;
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
 }
-.chk-lbl :checked ~ .options > .option:hover {
-    background-color: #343434;
-    color: #ACACAC;
+.select.show{
+    overflow: visible;
 }
-.chk-lbl > .chk-pseudo {
+.select.show > .options{
+    display: block;
+}
+.select:before {
+    content: "";
     position: absolute;
     top: 50%;
     margin-top: -4px;
     right: 5px;
     border-width: 8px;
     border-style: solid;
-    border-right-color: transparent;
-    border-left-color: transparent;
+    border-color: transparent;
     border-top-color: black;
-    border-bottom-color:transparent;
     z-index: 2;
 }
-.chk-lbl :checked + .chk-pseudo {
+.select.show:before {
     position: absolute;
     top: 50%;
     margin-top: -6px;
     right: 6px;
     border-width: 6px;
     border-style: solid;
+    border-color: transparent;
     border-right-color: black;
-    border-left-color: transparent;
-    border-top-color: transparent;
-    border-bottom-color:transparent;
-    z-index: 3;
+}
+.select:after{
+    content: attr(data-option);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #EDEDED;
+    box-shadow: inset 0 0 5px #345678;
+    padding: 2px 5px;
+}
+.option {
+    padding: 2px 5px;
+    overflow: hidden;
+}
+.show.select > .options .option:hover {
+    background-color: #343434;
+    color: #ACACAC;
 }
