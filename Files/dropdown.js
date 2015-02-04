@@ -17,7 +17,7 @@ var select = (function(){
         },
         optionClick = function (e) {
             var el = e.currentTarget;
-            var select = el.parentElement.parentElement;
+            var select = el.parentElement.parentElement.parentElement;
             select.setAttribute(attr, el.innerHTML);
             select.classList.remove(show);
         },
